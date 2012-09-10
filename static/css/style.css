@@ -22,6 +22,7 @@ body > .navbar .brand {
 body{
     border-top:2px solid #cb2027;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.20);
+    min-height: 480px;
 }
 
 
@@ -30,15 +31,55 @@ body{
     position:fixed;
     bottom:0;
     right:0;
-    background-color:#ccc;
-    padding:15px;
+    /*background-color: #cb2027;*/
+    background-color: rgba(203, 32, 39, 0.8);
+    padding:25px 10px 10px 25px;
+    color:white;
+    text-align: center;
+    text-shadow: 0 -1px rgba(34,25,25,0.3);
+
+
+    -webkit-border-radius: 500px 0 0 0;
+    -moz-border-radius: 500px 0 0 0;
+    border-radius: 500px 0 0 0;
+
+    outline: 0;
+    border-top:1px solid rgb(203, 32, 39);
+    border-left:1px solid rgb(203, 32, 39);
+    /*
+    -webkit-box-shadow:0 5px 5px rgba(0, 0, 0, 0.80);
+    -moz-box-shadow:0 5px 5px rgba(0, 0, 0, 0.80);
+    box-shadow:0 0 20px 5px rgba(0, 0, 0, 0.20);
+    */
+    /*
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 255, 255, 0.6);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 255, 255, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 255, 255, 0.6);
+    */
+    /*
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+    */
 }
 
+.game:active,
+.game:hover{
+    color:white;
+    background-color: rgba(203, 32, 39, 1);
+    text-decoration: none;
+    text-shadow: 0 -1px rgba(34,25,25,0.3);
+}
+
+
+
 .home-link{
-    padding: 10px;
+    padding: 5px;
     border:1px solid transparent;
     color: #cb2027;
 }
+
+.home-link h2{margin:0;}
 
 .home-link:hover{
     background-color:#efefef;
@@ -58,6 +99,8 @@ body{
     background-color: #cb2027;
     border-color: #B80025;
 }
+
+.home-link i{margin-top:11px;}
 
 .span4.home-link{
     margin:0;
