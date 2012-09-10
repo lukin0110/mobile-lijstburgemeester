@@ -5,6 +5,7 @@ import os
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 from google.appengine.ext.webapp.util import run_wsgi_app
+from lijst import pages
 
 from google.appengine.dist import use_library
 #use_library('django', '0.96')
@@ -13,14 +14,12 @@ from google.appengine.dist import use_library
 
 
 
-class IndexPage(webapp.RequestHandler):
-    def get(self):
-        values = {}
-        self.response.out.write(template.render('templates/index.html',values))
-
-
 # loading the mappings
-mappings = [('/', IndexPage)]
+mappings = [
+    ('/', pages.IndexPage),
+    ('/wie/([^\\.]*)', pages.PersonPage),
+    ('/.*', pages.CatchallPage),
+]
 
 
 # initialize the app with the mappings
