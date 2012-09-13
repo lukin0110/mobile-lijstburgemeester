@@ -50,6 +50,10 @@
 <body>
 <a class="logo" href="/"><img src="/s/img/logo.png" alt="Lijst Burgemeester"/></a>
 
+{% if not noBack %}
+<div class="navback"><a class="back" href="javascript:void(0)" onclick="history.go(-1)">Terug</a></div>
+{% endif %}
+
 <!-- Navbar
 ================================================== -->
 <!--
@@ -84,3 +88,4 @@
 </div>
 -->
 
+<div class="container">

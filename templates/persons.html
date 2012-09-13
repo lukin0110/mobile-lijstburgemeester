@@ -1,0 +1,14 @@
+{% include "inc/header.html" %}
+
+<!--
+    Kandidaten overzicht: {{ spam }}
+-->
+
+<ul class="persons">
+    {% for item in persons %}
+        <li><a href="/wie/{{ item.0 }}"><span class="place">{{ item.1.place }}</span><span class="name">{{ item.1.name }}</span></a></li>
+    {% endfor %}
+</ul>
+
+
+{% include "inc/footer.html" %}
