@@ -3,8 +3,8 @@ body > .navbar .brand {color: white;float:left;}
 body{border-top:2px solid #cb2027;box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.20);min-height: 480px;}
 
 a{ color:#cb2027;}
-a:hover,
-a:active {color: #fff;background-color: #cb2027;text-decoration: none;}
+a:hover{color: #cb2027;text-decoration: none;}
+a:active{color: #fff;background-color: #cb2027;text-decoration: none;}
 
 a.logo{margin:0 auto 0 auto;max-width:1140px;display: block;text-decoration: none;background-color: transparent;}
 .logo img{margin-top:5px;}
@@ -22,7 +22,7 @@ a.logo{margin:0 auto 0 auto;max-width:1140px;display: block;text-decoration: non
 .persons a{display: block;padding:20px;}
 .persons .place{font-size: 25px;color:#000000;font-weight:bold;position: absolute;top: 19px;}
 .persons .name{font-size:18px;margin-left:35px;}
-.persons a:hover .place{color: #ffffff;}
+/*.persons a:hover .place{color: #ffffff;}*/
 /** /Styling of the candidates */
 
 /** Navback */
@@ -93,8 +93,9 @@ a.logo{margin:0 auto 0 auto;max-width:1140px;display: block;text-decoration: non
     */
 }
 
-.game:active,
-.game:hover{
+/*.game:hover,*/
+.game:active
+{
     color:white;
     background-color: rgba(203, 32, 39, 1);
     text-decoration: none;
@@ -110,7 +111,9 @@ a.logo{margin:0 auto 0 auto;max-width:1140px;display: block;text-decoration: non
 
 .home-link h2{margin:0;}
 
-.home-link:hover{
+
+/*.home-link:hover,*/
+.home-link:active {
     text-decoration: none;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
