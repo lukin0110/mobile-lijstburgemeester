@@ -16,8 +16,6 @@ Fx.hideLoading = function() {
 
 };
 
-
-
 /**
  * Hide the navigation bar
  *
@@ -32,3 +30,57 @@ window.addEventListener("load",function() {
         window.scrollTo(0, 0);
     }, 0);
 });
+
+/**
+ * Deep linking, and invoking ajax
+ */
+/*
+$.address.state("/").init(function(event){
+    console.log("init");
+    $("a").address();
+}).change(function(event){
+    console.log("change = " + event.value);
+});
+*/
+
+
+/*
+ $.address.change(function(event){
+
+ console.log("Hello buddy = " + event.value + ", " + event.path);
+ });
+ */
+
+/*
+ $.address.state('/jquery/address/samples/express').init(function(event) {
+
+ // Initializes the plugin
+ $('.nav a').address();
+
+ }).change(function(event) {
+
+ var value = $.address.state().replace(/^\/$/, '') + event.value;
+
+ // Selects the proper navigation link
+ $('.nav a').each(function() {
+ if ($(this).attr('href') == value) {
+ $(this).addClass('selected').focus();
+ } else {
+ $(this).removeClass('selected');
+ }
+ });
+
+ if (state && init) {
+
+ init = false;
+
+ } else {
+
+ // Loads and populates the page data
+ $.ajax({
+ cache: false,
+ complete: handler,
+ url: value
+ });
+ }
+                */

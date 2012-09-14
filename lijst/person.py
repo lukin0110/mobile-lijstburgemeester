@@ -1,6 +1,4 @@
 # -- coding: utf-8 --
-__author__ = 'maarten'
-
 
 class Person:
     def __init__(self, place, name, address, age, family, profession, career, leisure_time, interests, fun_fact, youtube, youtube_title, twitter, facebook, website):

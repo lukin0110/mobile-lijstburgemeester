@@ -51,7 +51,10 @@
 <a class="logo" href="/"><img src="/s/img/logo.png" alt="Lijst Burgemeester"/></a>
 
 {% if not noBack %}
-<div class="navback"><a class="back" href="javascript:void(0)" onclick="history.go(-1)">Terug</a></div>
+<div class="navfixed clearfix">
+    <div class="pull-left"><button type="button" class="btn btn-inverse" onclick="history.go(-1)">Terug</button></div>
+    <div class="pull-right"><a class="btn btn-inverse" href="/"><i class="icon-home icon-white"></i> Home</a></div>
+</div>
 {% endif %}
 
 <!-- Navbar

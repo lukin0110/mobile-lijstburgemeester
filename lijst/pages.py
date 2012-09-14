@@ -1,7 +1,6 @@
+# Welcome to some quick and dirty hacks and copy paste code
 from django.template import TemplateDoesNotExist
 
-__author__ = 'maarten'
-# Welcome to some quick and dirty hacks and copy paste code
 
 import logging
 from datetime import datetime, date, timedelta
