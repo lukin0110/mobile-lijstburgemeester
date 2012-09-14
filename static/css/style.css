@@ -1,6 +1,18 @@
 
+body{
+    border-top:2px solid #cb2027;box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.20);min-height: 480px;
+
+    /*
+    http://remysharp.com/2012/05/24/issues-with-position-fixed-scrolling-on-ios/
+    http://fioravengi.blogspot.nl/2011/06/implications-of-ios-5-webkit-overflow.html
+    http://stackoverflow.com/questions/7808110/css3-property-webkit-overflow-scrollingtouch-error
+    */
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
 body > .navbar .brand {color: white;float:left;}
-body{border-top:2px solid #cb2027;box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.20);min-height: 480px;}
+
 
 a{ color:#cb2027;}
 a:hover{color: #cb2027;text-decoration: none;}
@@ -25,37 +37,34 @@ a.logo{margin:0 auto 0 auto;max-width:1140px;display: block;text-decoration: non
 /*.persons a:hover .place{color: #ffffff;}*/
 /** /Styling of the candidates */
 
-/** Navback */
-.navfixed{position: fixed;
-    background-color:rgba(255, 255, 255, 0.8);border-bottom:1px solid #eee;top:0;left:0;
-    display: block;width: 100%;z-index: 1042;
-    border-top: 2px solid rgb(203, 32, 39);box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.20);
+/** Navfixed */
+.navfixed{
+    position: fixed;top:0;left:0;
+    width: 100%;z-index: 1042;
+    height: 48px;
+    background-color:rgba(255, 255, 255, 0.8);border-bottom:1px solid #eee;
+    display: block;
+
+    border-top: 2px solid rgb(203, 32, 39);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.20);
 }
-.navfixed div{margin:7px;}
-/*
-.navback a{
-    background-color: black;
-    color: white;
-    padding: 10px 15px 10px 15px;
-    font-weight: bold;display: inline-block;
-}*/
-/** /Navback */
+.navfixed-ph{height: 48px;display: block;}
+.navfixed div{margin:10px;}
+/** /Navfixed */
 
 
-.navbar-inverse
-.navbar-inner {
-    background-color: red;
-    background-image: -moz-linear-gradient(top,#222,#111);
-    background-image: -webkit-gradient(linear,0 0,0 100%,from(#222),to(#111));
-    background-image: -webkit-linear-gradient(top,#C90303,#B33333);
-    background-image: -o-linear-gradient(top,red,#111);
-    background-image: linear-gradient(to bottom,red,#111);
-    background-repeat: repeat-x;
-    border-color: #900;
-    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ff222222',endColorstr='#ff111111',GradientType=0);
+/* 32x31 */
+.loading{
+    border-radius: 5px;
+    padding: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background: rgba(0, 0, 0, 0.8);
+    margin-top: -30px;
+    margin-left: -15px;
+    z-index: 1042;
 }
-
-
 
 
 

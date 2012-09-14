@@ -42,9 +42,22 @@ class CatchallPage(webapp.RequestHandler):
     def get(self):
         try:
             path = self.request.path
-            str = "templates" + path + ".html"
             values = {}
+
+            if path == "/" or path is None:
+                path = "/index"
+                values['game'] = True
+                values['noBack'] = True
+
+            ajax = self.request.get('ajax')
+            str = "templates" + path + ".html"
+
+            if ajax != "true":
+                self.response.out.write(template.render("templates/inc/header.html",values))
             self.response.out.write(template.render(str,values))
+            if ajax != "true":
+                self.response.out.write(template.render("templates/inc/footer.html",values))
+
         except TemplateDoesNotExist:
             self.response.set_status(404)
             self.response.out.write(template.render('templates/404.html', {}))

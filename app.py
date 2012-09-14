@@ -16,7 +16,7 @@ from google.appengine.dist import use_library
 
 # loading the mappings
 mappings = [
-    ('/', pages.IndexPage),
+    ('/', pages.CatchallPage),
     ('/wie/([^\\.]*)', pages.PersonPage),
     ('/.*', pages.CatchallPage),
 ]

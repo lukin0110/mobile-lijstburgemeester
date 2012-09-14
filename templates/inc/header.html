@@ -48,47 +48,14 @@
     -->
 </head>
 <body>
-<a class="logo" href="/"><img src="/s/img/logo.png" alt="Lijst Burgemeester"/></a>
-
 {% if not noBack %}
-<div class="navfixed clearfix">
+<div class="navfixed clearfix" id="header">
     <div class="pull-left"><button type="button" class="btn btn-inverse" onclick="history.go(-1)">Terug</button></div>
     <div class="pull-right"><a class="btn btn-inverse" href="/"><i class="icon-home icon-white"></i> Home</a></div>
 </div>
+<div class="navfixed-ph"></div>
 {% endif %}
-
-<!-- Navbar
-================================================== -->
-<!--
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <a class="brand" href="/">Lijst Burgemeester</a>
-        </div>
-    </div>
-</div>
--->
-<!--
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="brand" href="/">Lijst Burgemeester</a>
-            <div class="nav-collapse collapse">
-                <ul class="nav">
-                    <li class="active"><a href="/">Home</a></li>
-                    <li class=""><a href="/wie/">Wie</a></li>
-                    <li class=""><a href="/waarom">Waarom</a></li>
-                    <li class=""><a href="/hoe">Hoe</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
--->
-
-<div class="container">
+<div class="loading" id="loading"><img width="31" height="31" src="/s/img/ajax-loader.gif" /></div>
+<a class="logo" href="/"><img src="/s/img/logo.png" alt="Lijst Burgemeester"/></a>
+<!-- the lives hereeee-->
+<div class="container" id="container">

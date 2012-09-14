@@ -1,20 +1,27 @@
-/**
- * Created with PyCharm.
- * User: maarten
- * Date: 9/10/12
- * Time: 11:24 PM
- * To change this template use File | Settings | File Templates.
- */
+var C = {};
+C.loaded = false;
 
 var Fx = {};
 
 Fx.showLoading = function() {
-
+    $("#loading").fadeIn(200);
+    return true;
 };
 
 Fx.hideLoading = function() {
-
+    $("#loading").fadeOut(200);
 };
+
+
+var App = {};
+
+App.init = function() {
+    Fx.hideLoading();
+};
+
+//Auto init of this script
+App.init();
+
 
 /**
  * Hide the navigation bar
@@ -31,17 +38,32 @@ window.addEventListener("load",function() {
     }, 0);
 });
 
+
+
+
 /**
  * Deep linking, and invoking ajax
  */
-/*
-$.address.state("/").init(function(event){
+$.address.state("/").init(function(event)
+{
     console.log("init");
     $("a").address();
-}).change(function(event){
-    console.log("change = " + event.value);
+
+}).change(function(event)
+{
+    console.log("change = " + event.value + ", " + window.location.pathname);
+
+    if(C.loaded) {
+        Fx.showLoading();
+        $.get(event.value, {'ajax':'true'}, function(data){
+            $('#container').html(data);
+            Fx.hideLoading();
+        }, "html");
+    } else {
+        C.loaded = true;
+    }
 });
-*/
+
 
 
 /*
