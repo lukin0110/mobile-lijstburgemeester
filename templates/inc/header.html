@@ -47,7 +47,9 @@
     </script>
     -->
 </head>
-<body>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+<div class="loading" id="loading"><img width="31" height="31" src="/s/img/ajax-loader.gif" /></div>
+
 {% if not noBack %}
 <div class="navfixed clearfix" id="header">
     <div class="pull-left"><button type="button" class="btn btn-inverse" onclick="history.go(-1)">Terug</button></div>
@@ -55,7 +57,10 @@
 </div>
 <div class="navfixed-ph"></div>
 {% endif %}
-<div class="loading" id="loading"><img width="31" height="31" src="/s/img/ajax-loader.gif" /></div>
+
+{% if noBack %}
 <a class="logo" href="/"><img src="/s/img/logo.png" alt="Lijst Burgemeester"/></a>
+{% endif %}
+
 <!-- the lives hereeee-->
 <div class="container" id="container">

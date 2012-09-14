@@ -42,7 +42,7 @@ a.logo{margin:0 auto 0 auto;max-width:1140px;display: block;text-decoration: non
     position: fixed;top:0;left:0;
     width: 100%;z-index: 1042;
     height: 48px;
-    background-color:rgba(255, 255, 255, 0.8);border-bottom:1px solid #eee;
+    background-color:rgba(245, 245, 245, 0.8);border-bottom:1px solid #eee;
     display: block;
 
     border-top: 2px solid rgb(203, 32, 39);

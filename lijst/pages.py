@@ -1,4 +1,5 @@
 # Welcome to some quick and dirty hacks and copy paste code
+import string
 from django.template import TemplateDoesNotExist
 
 
@@ -35,6 +36,7 @@ class PersonPage(webapp.RequestHandler):
         if len(path) == 0:
             self.response.out.write(template.render('templates/persons.html',values))
         else:
+            values["person"] = persons[string.replace(path, "/", "")]
             self.response.out.write(template.render('templates/person.html',values))
 
 
@@ -49,15 +51,8 @@ class CatchallPage(webapp.RequestHandler):
                 values['game'] = True
                 values['noBack'] = True
 
-            ajax = self.request.get('ajax')
             str = "templates" + path + ".html"
-
-            if ajax != "true":
-                self.response.out.write(template.render("templates/inc/header.html",values))
             self.response.out.write(template.render(str,values))
-            if ajax != "true":
-                self.response.out.write(template.render("templates/inc/footer.html",values))
-
         except TemplateDoesNotExist:
             self.response.set_status(404)
             self.response.out.write(template.render('templates/404.html', {}))
