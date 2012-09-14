@@ -5,6 +5,7 @@ var Fx = {};
 
 Fx.showLoading = function() {
     $("#loading").fadeIn(200);
+    App.log("ddd");
     return true;
 };
 
@@ -19,6 +20,25 @@ App.log = function(msg) {
     if (window["console"]) {
         console.log(msg);
     }
+};
+
+App.history = function() {
+    var hash = window.location.hash;
+    var path = window.location.pathname;
+
+    if(path === "/waarom"){
+        if(hash){
+            window.location = '/waarom';
+        } else {
+            window.location = "/";
+        }
+    } else {
+        history.go(-1);
+    }
+
+    //App.log("1 = " + hash + ", " + window.location.pathname);
+    //App.log("2 = " + (hash ? "rr" : "tt"));
+    //history.go(-1);
 };
 
 App.init = function() {
@@ -41,10 +61,11 @@ App.init = function() {
     });
 
 
-    $("a").each(function(index, element){
+    $("a[loading='true']").each(function(index, element){
         if ($(element).attr("href").indexOf("#") === -1) {
             $(element).click(function(){
                 Fx.showLoading();
+                setTimeout(function(){Fx.hideLoading()}, 1000);
             });
         }
     });

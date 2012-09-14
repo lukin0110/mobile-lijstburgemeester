@@ -48,12 +48,13 @@
     -->
 </head>
 <body data-spy="scroll" data-target=".bs-docs-sidebar">
+<a name="top"></a>
 <div class="loading" id="loading"><img width="31" height="31" src="/s/img/ajax-loader.gif" /></div>
 
 {% if not noBack %}
 <div class="navfixed clearfix" id="header">
-    <div class="pull-left"><button type="button" class="btn btn-inverse" onclick="history.go(-1)">Terug</button></div>
-    <div class="pull-right"><a class="btn btn-inverse" href="/"><i class="icon-home icon-white"></i> Home</a></div>
+    <div class="pull-left"><a class="btn btn-inverse" href="javascript:void(0)" onclick="App.history();">Terug</a></div>
+    <div class="pull-right"><a class="btn btn-inverse" href="/" loading="true"><i class="icon-home icon-white"></i> Home</a></div>
 </div>
 <div class="navfixed-ph"></div>
 {% endif %}
