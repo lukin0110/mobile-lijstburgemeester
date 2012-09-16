@@ -1,72 +1,83 @@
 {% include "inc/header.html" %}
 
-<!--
-self.address = address
-self.age = age
-self.family = family
-self.profession = profession
-self.career = career
-self.leisure_time = leisure_time
-self.interests = interests
-self.fun_fact = fun_fact
-self.youtube = youtube
-self.youtube_title = youtube_title
-self.twitter = twitter
-self.facebook = facebook
-self.website = website-->
+<div class="page-header">
+    <h3>{{ person.place }}. {{ person.name }}</h3>
+</div>
 
-
-    <div class="page-header">
-        <h3>{{ person.place }}. {{ person.name }}</h3>
+<div class="row">
+    <div class="span3 bs-docs-sidebar">
+        <img src="/s/img/persons/poster/{{ person.place }}.jpg" class="img-rounded"/>
     </div>
-    <p>{{ person.age }}</p>
-    <p>{{ person.family }}</p>
-    <p>{{ person.profession }}</p>
-    <p>{{ person.career }}</p>
-    <p>{{ person.leisure_time }}</p>
-    <p>{{ person.interests }}</p>
-    <p>{{ person.fun_fact }}</p>
-    <p>{{ person.youtube }}</p>
-    <p>{{ person.youtube_title }}</p>
-    <p>{{ person.twitter }}</p>
-    <p>{{ person.facebook }}</p>
-    <p>{{ person.website }}</p>
+    <div class="span9">
+        <!--
+      self.address = address
+      self.age = age
+      self.family = family
+      self.profession = profession
+      self.career = career
+      self.leisure_time = leisure_time
+      self.interests = interests
+      self.fun_fact = fun_fact
+      self.youtube = youtube
+      self.youtube_title = youtube_title
+      self.twitter = twitter
+      self.facebook = facebook
+      self.website = website-->
+        <section id="EenKrachtigFinancieelBeleid">
+            <p>{{ person.age }}</p>
+            <p>{{ person.family }}</p>
+            <p>{{ person.profession }}</p>
+            <p>{{ person.career }}</p>
+            <p>{{ person.leisure_time }}</p>
+            <p>{{ person.interests }}</p>
+            <p>{{ person.fun_fact }}</p>
+            <p>{{ person.youtube }}</p>
+            <p>{{ person.youtube_title }}</p>
+            <p>{{ person.twitter }}</p>
+            <p>{{ person.facebook }}</p>
+            <p>{{ person.website }}</p>
 
-    <p class="lead">Al vele jaren voeren we een gezond financieel beleid. Dat is in de eerste plaats goed voor uw portemonnee.
-        Omdat we goed op de centen letten, kunnen we de gemeentebelastingen voor de Lommelse gezinnen laag houden.
-        Dankzij deze lage belastingen is wonen in Lommel per gezin (van gemiddeld vier personen) elk jaar zo’n 340 euro goedkoper dan elders in Vlaanderen.</p>
+            <p class="lead">Al vele jaren voeren we een gezond financieel beleid. Dat is in de eerste plaats goed voor uw portemonnee.
+                Omdat we goed op de centen letten, kunnen we de gemeentebelastingen voor de Lommelse gezinnen laag houden.
+                Dankzij deze lage belastingen is wonen in Lommel per gezin (van gemiddeld vier personen) elk jaar zo’n 340 euro goedkoper dan elders in Vlaanderen.</p>
 
-    <div class="row-fluid">
-        <p>Een financieel gezond beleid is daarenboven ook goed voor de stadskas. Meer doen met minder geld is steeds de betrachting.
-            En met de extra taken voor de steden en de gemeenten, de toenemende personeelskosten en werkingskosten, zal dit ook in de toekomst de uitdaging blijven.</p>
-        <p>Daarom is het belangrijk dat iedereen een stukje meebetaalt aan ons welzijn, en niet alleen de Lommelaars.</p>
+            <div class="row-fluid">
+                <p>Een financieel gezond beleid is daarenboven ook goed voor de stadskas. Meer doen met minder geld is steeds de betrachting.
+                    En met de extra taken voor de steden en de gemeenten, de toenemende personeelskosten en werkingskosten, zal dit ook in de toekomst de uitdaging blijven.</p>
+                <p>Daarom is het belangrijk dat iedereen een stukje meebetaalt aan ons welzijn, en niet alleen de Lommelaars.</p>
 
-        <ul>
-            <li>We proberen steeds maximaal subsidies van de provincie, van Vlaanderen en zelfs van Europa naar Lommel te halen (bv. € 28.000.000 euro voor Kristalpark).</li>
-            <li>Ook onze bedrijven dragen op een eerlijke manier via belastingen bij.</li>
-            <li>De vele toeristen betalen een toeristenbelasting voor elke overnachting.</li>
-        </ul>
+                <ul>
+                    <li>We proberen steeds maximaal subsidies van de provincie, van Vlaanderen en zelfs van Europa naar Lommel te halen (bv. € 28.000.000 euro voor Kristalpark).</li>
+                    <li>Ook onze bedrijven dragen op een eerlijke manier via belastingen bij.</li>
+                    <li>De vele toeristen betalen een toeristenbelasting voor elke overnachting.</li>
+                </ul>
 
-        <h2>Gemeente belasinting</h2>
-        <ul>
-            <li>6,00% Lommel</li>
-            <li>7,53%	 Gemiddelde Limburg</li>
-        </ul>
+                <h2>Gemeente belasinting</h2>
+                <ul>
+                    <li>6,00% Lommel</li>
+                    <li>7,53%	 Gemiddelde Limburg</li>
+                </ul>
 
-        <h2>Onroerende voorheffing</h2>
-        <ul>
-            <li>1150 opcentiemen	Lommel</li>
-            <li>1318 opcentiemen	Gemiddelde Limburg</li>
-        </ul>
+                <h2>Onroerende voorheffing</h2>
+                <ul>
+                    <li>1150 opcentiemen	Lommel</li>
+                    <li>1318 opcentiemen	Gemiddelde Limburg</li>
+                </ul>
 
-        <p>De zandbedrijven betalen een zandbelasting voor elke ton zand die ze verkopen. In de toekomst willen we die extra-inkomsten ook nog elders halen:</p>
-        <ul>
-            <li>Door als stad zelf mee te investeren in de nieuwe windmolens, brengt de wind in Lommel de volgende jaren ook geld in onze stadskas;</li>
-            <li>met de bouw van een crematorium in Lommel wordt afscheid nemen van een dierbaar familielid voor de Lommelaar niet alleen goedkoper,
-                ook de opbrengsten ervan komen de Lommelaars ten goede.</li>
-        </ul>
+                <p>De zandbedrijven betalen een zandbelasting voor elke ton zand die ze verkopen. In de toekomst willen we die extra-inkomsten ook nog elders halen:</p>
+                <ul>
+                    <li>Door als stad zelf mee te investeren in de nieuwe windmolens, brengt de wind in Lommel de volgende jaren ook geld in onze stadskas;</li>
+                    <li>met de bouw van een crematorium in Lommel wordt afscheid nemen van een dierbaar familielid voor de Lommelaar niet alleen goedkoper,
+                        ook de opbrengsten ervan komen de Lommelaars ten goede.</li>
+                </ul>
 
-        <p>Want wij willen de belastingen voor de Lommelaars laag houden. De laagste van Limburg!</p>
+                <p>Want wij willen de belastingen voor de Lommelaars laag houden. De laagste van Limburg!</p>
+            </div>
+        </section>
     </div>
+</div>
+
+
+
 
 {% include "inc/footer.html" %}

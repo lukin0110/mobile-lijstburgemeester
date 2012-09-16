@@ -14,7 +14,7 @@ from operator import attrgetter
 
 class IndexPage(webapp.RequestHandler):
     def get(self):
-        values = {'game': True, 'noBack': True}
+        values = {'menu': 'logo'}
         self.response.out.write(template.render('templates/index.html',values))
 
 
@@ -28,15 +28,30 @@ class PersonPage(webapp.RequestHandler):
 
         values = {
             'path': path,
+            'history': '/',
             'spam': 'eggs',
             'persons': persons_sorted,
             'persons2': persons
         }
 
         if len(path) == 0:
+            values["menu"] = "back"
             self.response.out.write(template.render('templates/persons.html',values))
         else:
-            values["person"] = persons[string.replace(path, "/", "")]
+            person = persons[string.replace(path, "/", "")]
+            values["menu"] = "persons"
+            values["person"] = person
+
+            if person.place == 31:
+                values["next"] = "/wie/"
+            else:
+                values["next"] = persons_sorted[person.place][0]
+
+            if person.place == 1:
+                values["previous"] = "/wie/"
+            else:
+                values["previous"] = persons_sorted[person.place-2][0]
+
             self.response.out.write(template.render('templates/person.html',values))
 
 
@@ -44,12 +59,11 @@ class CatchallPage(webapp.RequestHandler):
     def get(self):
         try:
             path = self.request.path
-            values = {}
+            values = {'menu':'back'}
 
             if path == "/" or path is None:
                 path = "/index"
-                values['game'] = True
-                values['noBack'] = True
+                values['menu'] = 'logo'
 
             str = "templates" + path + ".html"
             self.response.out.write(template.render(str,values))

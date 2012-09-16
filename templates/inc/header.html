@@ -48,20 +48,30 @@
     -->
 </head>
 <body data-spy="scroll" data-target=".bs-docs-sidebar">
+<!--<p>{{ debug }}</p>-->
 <a name="top"></a>
 <div class="loading" id="loading"><img width="31" height="31" src="/s/img/ajax-loader.gif" /></div>
 
-{% if not noBack %}
+{% ifequal menu "back" %}
 <div class="navfixed clearfix" id="header">
     <div class="pull-left"><a class="btn btn-inverse" href="javascript:void(0)" onclick="App.history();">Terug</a></div>
     <div class="pull-right"><a class="btn btn-inverse" href="/" loading="true"><i class="icon-home icon-white"></i> Home</a></div>
 </div>
 <div class="navfixed-ph"></div>
-{% endif %}
+{% endifequal %}
 
-{% if noBack %}
+{% ifequal menu "persons" %}
+<div class="navfixed clearfix" id="header">
+    <div class="pull-left"><a class="btn btn-inverse" href="{{ previous }}" loading="true"><i class="icon-chevron-left icon-white"></i> Vorige</a></div>
+    <div class="pull-left"><a class="btn btn-inverse" href="/wie/"><i class="icon-user icon-white"></i></a></div>
+    <div class="pull-right"><a class="btn btn-inverse" href="{{ next }}" loading="true">Volgende <i class="icon-chevron-right icon-white"></i></a></div>
+</div>
+<div class="navfixed-ph"></div>
+{% endifequal %}
+
+{% ifequal menu "logo" %}
 <a class="logo" href="/"><img src="/s/img/logo.png" alt="Lijst Burgemeester"/></a>
-{% endif %}
+{% endifequal %}
 
 <!-- the lives hereeee-->
 <div class="container" id="container">

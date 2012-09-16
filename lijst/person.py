@@ -143,7 +143,7 @@ persons = {
 ),
 
 #Plaats 6
-'johan-Hoeks': Person(
+'johan-hoeks': Person(
     6,
     'Johan Hoeks',
     'Rijkschoolstraat, CENTRUM',

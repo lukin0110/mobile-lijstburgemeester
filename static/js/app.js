@@ -32,6 +32,8 @@ App.history = function() {
         } else {
             window.location = "/";
         }
+    } else if(path === "/wie/") {
+        window.location = "/";
     } else {
         history.go(-1);
     }
