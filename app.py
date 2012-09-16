@@ -18,6 +18,7 @@ from google.appengine.dist import use_library
 mappings = [
     ('/', pages.CatchallPage),
     ('/wie/([^\\.]*)', pages.PersonPage),
+    ('/spel/(.*)', pages.GamePage),
     ('/.*', pages.CatchallPage),
 ]
 

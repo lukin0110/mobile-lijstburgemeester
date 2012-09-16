@@ -48,7 +48,7 @@ a.logo{margin:0 auto 0 auto;max-width:1140px;display: block;text-decoration: non
     border-top: 2px solid rgb(203, 32, 39);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.20);
 }
-.navfixed-ph{height: 48px;display: block;}
+.navfixed-ph{height: 52px;display: block;}
 .navfixed div{margin:10px;}
 /** /Navfixed */
 
@@ -129,4 +129,8 @@ a.logo{margin:0 auto 0 auto;max-width:1140px;display: block;text-decoration: non
 
 .span4.home-link{
     margin:0;
+}
+
+.center{
+    text-align: center;
 }

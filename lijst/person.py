@@ -1,7 +1,9 @@
 # -- coding: utf-8 --
 
 class Person:
-    def __init__(self, place, name, address, age, family, profession, career, leisure_time, interests, fun_fact, youtube, youtube_title, twitter, facebook, website):
+    def __init__(self, place, name, address, age, family, profession, career,
+                 leisure_time, interests, fun_fact, youtube, youtube_title, twitter, facebook, website,
+                 pic_youth):
         self.place = place
         self.name = name
         self.address = address
@@ -17,6 +19,7 @@ class Person:
         self.twitter = twitter
         self.facebook = facebook
         self.website = website
+        self.pic_youth = pic_youth
 
 persons = {
 # Plaats 1
@@ -44,7 +47,8 @@ persons = {
     None,
     None,
     None,
-    'http://www.petervanvelthoven.be'
+    'http://www.petervanvelthoven.be',
+    True,
 ),
 
 # Plaats 2
@@ -67,7 +71,8 @@ persons = {
     'The piano - amazing short',
     None,
     None,
-    'http://www.advoclommel.be'
+    'http://www.advoclommel.be',
+    True,
 ),
 
 #Plaats 3
@@ -91,7 +96,8 @@ persons = {
     "Fragment De Parelvissers",
     None,
     None,
-    ''
+    None,
+    True,
 ),
 
 #Plaats 4
@@ -115,7 +121,8 @@ persons = {
     "Laatste kilometer Johan Vansummeren",
     "@minavangrieken",
     None,
-    ''
+    None,
+    True,
 ),
 
 #Plaats 5
@@ -139,7 +146,8 @@ persons = {
     "The World Book of Happiness",
     None,
     "https://www.facebook.com/rita.phlippo",
-    'http://www.apotheekphlippo.be'
+    'http://www.apotheekphlippo.be',
+    True,
 ),
 
 #Plaats 6
@@ -161,7 +169,8 @@ persons = {
     "Hoeks Triatlon",
     None,
     None,
-    'http://www.hoeks.be'
+    'http://www.hoeks.be',
+    True,
 ),
 
 #Plaats 7
@@ -185,7 +194,8 @@ persons = {
     "La Vita e Bella",
     None,
     None,
-    ''
+    None,
+    True,
 ),
 
 #Plaats 8,
@@ -209,7 +219,8 @@ persons = {
     None,
     None,
     None,
-    ''
+    None,
+    True,
 ),
 
 #NAAM:
@@ -238,7 +249,8 @@ persons = {
     "Rocco con Buscemi",
     None,
     None,
-    ''
+    None,
+    True,
 ),
 
 #Plaats 10
@@ -259,7 +271,8 @@ persons = {
     "Isaac's Live Lipdup proposal",
     None,
     None,
-    ''
+    None,
+    True,
 ),
 
 #Plaats 11
@@ -282,7 +295,8 @@ persons = {
     None,
     None,
     None,
-    None
+    None,
+    False,
 ),
 
 #Plaats 12
@@ -305,7 +319,8 @@ persons = {
     "Eddy Wally - Djippelein",
     None,
     None,
-    ''
+    None,
+    False,
 ),
 
 #Plaats 13
@@ -326,7 +341,8 @@ persons = {
     None,
     None,
     None,
-    ''
+    None,
+    True,
 ),
 
 #Plaats 14,
@@ -348,7 +364,8 @@ persons = {
     None,
     None,
     None,
-    'https://www.facebook.com/freddy.bantje'
+    'https://www.facebook.com/freddy.bantje',
+    True,
 ),
 
 #Plaats 15
@@ -369,7 +386,8 @@ persons = {
     "Evolution of dance",
     None,
     None,
-    'http://www.fermolux.be'
+    'http://www.fermolux.be',
+    True,
 ),
 
 #Plaats 16,
@@ -392,7 +410,8 @@ persons = {
     None,
     None,
     None,
-    ''
+    None,
+    True,
 ),
 
 #Plaats 17
@@ -416,7 +435,8 @@ persons = {
     "Spot orienteering",
     None,
     None,
-    'http://www.kriskijktvooruit.be'
+    'http://www.kriskijktvooruit.be',
+    True,
 ),
 
 #Plaats 18
@@ -438,7 +458,8 @@ persons = {
     None,
     None,
     None,
-    ''
+    None,
+    True,
 ),
 
 #Plaats 19,
@@ -459,7 +480,8 @@ persons = {
     'Husky Dog Talking "I love you"',
     None,
     None,
-    ''
+    None,
+    False,
 ),
 
 #Plaats 20
@@ -480,7 +502,8 @@ persons = {
     "Brandweer Lommel heeft nieuwe autopomp",
     None,
     None,
-    ''
+    None,
+    True,
 ),
 
 #Plaats 21
@@ -504,7 +527,8 @@ persons = {
     "Lead India - The Tree",
     None,
     None,
-    ''
+    None,
+    True,
 ),
 #Ervaring + goesting = uw stem
 
@@ -529,7 +553,8 @@ persons = {
     "Fietsen in Spanje",
     None,
     None,
-    ''
+    None,
+    True,
 ),
 
 #Plaats 23
@@ -553,7 +578,8 @@ persons = {
     "David Guetta @ tomorrowland",
     None,
     None,
-    ''
+    None,
+    True,
 ),
 
 #Plaats 24
@@ -577,7 +603,8 @@ persons = {
     "Susan Boyles first audition",
     None,
     None,
-    ''
+    None,
+    True,
 ),
 
 #Plaats 25
@@ -598,7 +625,8 @@ persons = {
     "Belgium vs USSR - Mexico 1986",
     None,
     None,
-    ''
+    None,
+    True,
 ),
 
 #Plaats 26
@@ -619,7 +647,8 @@ persons = {
     "Talent uit eigen tent (A. Delamazuretrio)",
     None,
     None,
-    ''
+    None,
+    True,
 ),
 
 #Plaats 27
@@ -641,7 +670,8 @@ persons = {
     "Najib Amhali",
     None,
     None,
-    ''
+    None,
+    True,
 ),
 
 #Plaats 28
@@ -665,7 +695,8 @@ persons = {
     "Lassie",
     None,
     None,
-    ''
+    None,
+    True,
 ),
 
 #plaats 29
@@ -689,7 +720,8 @@ persons = {
     None,
     'http://twitter.com/huijsmansdanny',
     'https://www.facebook.com/huijsmansdanny',
-    'http://www.sintjan-lommel.be'
+    'http://www.sintjan-lommel.be',
+    True,
 ),
 
 #Plaats 30,
@@ -712,7 +744,8 @@ persons = {
     "Profronde Lommel V03",
     None,
     None,
-    ''
+    None,
+    True,
 ),
 
 #Plaats 31
@@ -735,6 +768,17 @@ persons = {
     "Hades - Lutlommel VV 1-5",
     None,
     None,
-    ''
+    None,
+    True,
 )}
+
+
+
+
+# Quick hack to have them as a sorted list, its a list of tuples (key,value)
+
+#sorted(d.items(), key=itemgetter(1))
+#input.sort(lambda x,y : cmp(x['name'], y['name']))
+#sorted_persons = sorted(persons.items(), key=itemgetter(0))
+persons_sorted = sorted(persons.items(), key=lambda (k, v): float(v.place))
 

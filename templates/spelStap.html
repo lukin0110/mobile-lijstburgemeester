@@ -1,0 +1,12 @@
+{% include "inc/header.html" %}
+<div class="row">
+    <h3 class="clearfix" style="margin:0">Foto {{ step }} <small class="pull-right" style="line-height: 35px;">{{ step }} / 5</small></h3>
+    <div class="center"><img src="/s/img/persons/youth/{{ person.place }}.jpg" class="img-polaroid"/></div>
+
+    <ul class="persons">
+        <li><a href="/spel/{{ step|add:1 }}?q={{ answers.0.place }}" loading="true"><span class="place">1</span> <span class="name">{{ answers.0.name }}</span></a></li>
+        <li><a href="/spel/{{ step|add:1 }}?q={{ answers.1.place }}" loading="true"><span class="place">2</span> <span class="name">{{ answers.1.name }}</span></a></li>
+        <li><a href="/spel/{{ step|add:1 }}?q={{ answers.2.place }}" loading="true"><span class="place">3</span> <span class="name">{{ answers.2.name }}</span></a></li>
+    </ul>
+</div>
+{% include "inc/footer.html" %}

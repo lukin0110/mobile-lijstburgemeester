@@ -1,4 +1,5 @@
 # Welcome to some quick and dirty hacks and copy paste code
+import random
 import string
 from django.template import TemplateDoesNotExist
 
@@ -9,6 +10,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 from google.appengine.ext import db
 from person import persons
+from person import persons_sorted
 from operator import itemgetter
 from operator import attrgetter
 
@@ -20,12 +22,6 @@ class IndexPage(webapp.RequestHandler):
 
 class PersonPage(webapp.RequestHandler):
     def get(self, path):
-
-        #sorted(d.items(), key=itemgetter(1))
-        #input.sort(lambda x,y : cmp(x['name'], y['name']))
-        #sorted_persons = sorted(persons.items(), key=itemgetter(0))
-        persons_sorted = sorted(persons.items(), key=lambda (k, v): float(v.place))
-
         values = {
             'path': path,
             'history': '/',
@@ -70,5 +66,41 @@ class CatchallPage(webapp.RequestHandler):
         except TemplateDoesNotExist:
             self.response.set_status(404)
             self.response.out.write(template.render('templates/404.html', {}))
+
+
+class GamePage(webapp.RequestHandler):
+    def get(self, path):
+        chosenOne = self.getRandom()
+        values = {
+            'menu':'back',
+            'person': chosenOne,
+            'step':1,
+            'answers': self.getAnswers(chosenOne)
+        }
+        self.response.out.write(template.render("templates/spelStap.html",values))
+
+    def getAnswers(self, chosenOne):
+        answers = [
+            chosenOne,
+            self.getRandom(),
+            self.getRandom()
+        ]
+        # everyday i'm shuffling
+        random.shuffle(answers)
+        return answers
+
+    def getRandom(self):
+        index = random.randint(1, 31)
+        person = persons_sorted[index-1][1]
+
+        while not person.pic_youth:
+            index = random.randint(1, 31)
+            person = persons_sorted[index-1][1]
+
+        return person
+
+
+
+
 
 
