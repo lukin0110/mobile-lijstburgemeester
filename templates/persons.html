@@ -6,7 +6,7 @@
 
 <ul class="persons">
     {% for item in persons %}
-        <li><a href="/wie/{{ item.0 }}"><span class="place">{{ item.1.place }}</span><span class="name">{{ item.1.name }}</span></a></li>
+        <li><a href="/wie/{{ item.0 }}" loading="true"><span class="place">{{ item.1.place }}</span><span class="name">{{ item.1.name }}</span></a></li>
     {% endfor %}
 </ul>
 
