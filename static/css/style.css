@@ -1,6 +1,6 @@
 
 body{
-    border-top:2px solid #cb2027;box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.20);min-height: 480px;
+    border-top:4px solid #cb2027;box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.20);min-height: 480px;
 
     /*
     http://remysharp.com/2012/05/24/issues-with-position-fixed-scrolling-on-ios/
@@ -45,7 +45,7 @@ a.logo{margin:0 auto 0 auto;max-width:1140px;display: block;text-decoration: non
     background-color:rgba(245, 245, 245, 0.8);border-bottom:1px solid #eee;
     display: block;
 
-    border-top: 2px solid rgb(203, 32, 39);
+    border-top: 4px solid rgb(203, 32, 39);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.20);
 }
 .navfixed-ph{height: 52px;display: block;}
