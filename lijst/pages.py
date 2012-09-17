@@ -68,7 +68,8 @@ class CatchallPage(webapp.RequestHandler):
             path = self.request.path
             values = {
                 'menu': 'back',
-                'page': PageMeta("Samen voor Lommel.  Lijst Burgemeester 2012", "Lommel, sp.a, lijst burgemeester, peter vanvelthoven, iphone, android, mobile", None)
+                #'page': PageMeta("Samen voor Lommel.  Lijst Burgemeester 2012", "Lommel, sp.a, lijst burgemeester, peter vanvelthoven, iphone, android, mobile", None)
+                'page': PageMeta("Speel het Lijst Burgemeester spel, raad de jeugdfoto's van onze kandidaten ...", "Lommel, sp.a, kwis, lijst burgemeester, peter vanvelthoven, iphone, android, mobile", "Foto kwis")
             }
 
             if path == "/" or path is None:
