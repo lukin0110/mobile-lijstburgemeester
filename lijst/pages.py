@@ -14,6 +14,8 @@ from person import persons_sorted
 from operator import itemgetter
 from operator import attrgetter
 
+logger = logging.getLogger("pages")
+
 class IndexPage(webapp.RequestHandler):
     def get(self):
         values = {'menu': 'logo'}
@@ -73,6 +75,7 @@ class GamePage(webapp.RequestHandler):
         self.possibleValues = range(1, 32)
         param_done = base64.urlsafe_b64decode(str(self.request.get("d"))).split("|")
         param_correct = base64.urlsafe_b64decode(str(self.request.get("c")))
+        logger.info("Correct = " + param_correct)
 
         # Remove
         for place in param_done:
@@ -106,7 +109,7 @@ class GamePage(webapp.RequestHandler):
 
     def getRandom(self):
         """
-        Returns a random person with some excludes in mind.  The returned values is a tuple (key, value)
+        Returns a random person, with some excludes in mind.  The returned value is a tuple (key, value)
         """
         #index = random.randint(1, 31)
         index = random.choice(self.possibleValues)
