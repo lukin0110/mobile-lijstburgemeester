@@ -2,9 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Lijst Burgemeester Lommel</title>
+    <title>{% if page.title %}{{ page.title }} | {% endif %}Lijst Burgemeester Lommel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <meta property="og:site_name" content="Lijst Burgemeester Lommel"/>
+    <meta property="og:image" content="/s/img/logo.png"/>
+    <meta property="og:url" content="http://lijst.lukin.be"/>
+    <meta name="description" content="{{ page.desc }}"/>
+    <meta name="keywords" content="{{ page.keywords }}"/>
+
+    <!--
+    <meta property="fb:app_id" content="117844644948494"/>
+    <meta property="fb:page_id" content="209616889051124"/>
+    -->
+
+    <!--
+    <meta property="og:site_name" content="Shopliv.es"/>
+    <meta property="og:image" content="http://dncvhruznkiwg.cloudfront.net/s/img/common/oglogo.png"/>
+-->
 <!--
      m        "       "            m
      #      mmm     mmm    mmm   mm#mm

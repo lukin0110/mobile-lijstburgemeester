@@ -16,6 +16,13 @@ from operator import attrgetter
 
 logger = logging.getLogger("pages")
 
+class PageMeta:
+    def __init__(self, desc, keywords, title):
+        self.desc = desc
+        self.keywords = keywords
+        self.title = title
+
+
 class IndexPage(webapp.RequestHandler):
     def get(self):
         values = {'menu': 'logo'}
@@ -34,11 +41,13 @@ class PersonPage(webapp.RequestHandler):
 
         if len(path) == 0:
             values["menu"] = "back"
+            values["page"] = PageMeta("Ontdek onze kandidaten", "Lommel, sp.a, kandidaten, lijst burgemeester", "Wie")
             self.response.out.write(template.render('templates/persons.html', values))
         else:
             person = persons[string.replace(path, "/", "")]
             values["menu"] = "persons"
             values["person"] = person
+            values["page"] = PageMeta("Kandidaat: " + person.name, "Lommel, sp.a, kandidaten, lijst burgemeester, " + person.name, person.name)
 
             if person.place == 31:
                 values["next"] = "/wie/"
@@ -57,7 +66,10 @@ class CatchallPage(webapp.RequestHandler):
     def get(self):
         try:
             path = self.request.path
-            values = {'menu': 'back'}
+            values = {
+                'menu': 'back',
+                'page': PageMeta("Samen voor Lommel.  Lijst Burgemeester 2012", "Lommel, sp.a, lijst burgemeester, peter vanvelthoven, iphone, android, mobile", None)
+            }
 
             if path == "/" or path is None:
                 path = "/index"
@@ -87,6 +99,7 @@ class GamePage(webapp.RequestHandler):
         param_done.append(chosenOne[1].place)
 
         values = {
+            'page': PageMeta("Het Lijst Burgemeester spel", "Kwis, fotos, kandidaten, mobile", "De foto kwis"),
             'menu': 'back',
             'person': chosenOne[1],
             'correct': base64.urlsafe_b64encode(chosenOne[0]),
