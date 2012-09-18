@@ -110,8 +110,6 @@ class GamePage(webapp.RequestHandler):
         elif param_choice != -1:
             result = "error"
 
-        #logger.info("Stront = " + str(result) + str(param_choice) + param_correct + str(person_correct.place))
-
         # Remove
         for place in param_done:
             self.remove(place)
