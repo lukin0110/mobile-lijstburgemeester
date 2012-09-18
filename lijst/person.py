@@ -3,7 +3,7 @@
 class Person:
     def __init__(self, place, name, address, age, family, profession, career,
                  leisure_time, interests, fun_fact, youtube, youtube_title, twitter, facebook, website,
-                 pic_youth, slogan, youtube_promo):
+                 pic_youth, slogan, youtube_promo, gender):
         self.place = place
         self.name = name
         self.address = address
@@ -22,6 +22,7 @@ class Person:
         self.pic_youth = pic_youth
         self.slogan = slogan
         self.youtube_promo = youtube_promo
+        self.gender = gender
 
 persons = {
 # Plaats 1
@@ -54,6 +55,7 @@ persons = {
     True,
     "Geef het beste van jezef, ook aan anderen",
     "http://www.youtube.com/embed/lBHA9mYkzzM",
+    "M",
 ),
 
 # Plaats 2
@@ -81,6 +83,7 @@ persons = {
     True,
     "Energiek aan de slag voor onze stad",
     "http://www.youtube.com/embed/tBVEMu-os08",
+    "F",
 ),
 
 #Plaats 3
@@ -108,6 +111,7 @@ persons = {
     True,
     "Ruimte maken, is werken aan oplossingen",
     "http://www.youtube.com/embed/tXbsLeDvIdA",
+    "M",
 ),
 
 #Plaats 4
@@ -136,6 +140,7 @@ persons = {
     True,
     "Sport en kwaliteit. Hand in hand.",
     "http://www.youtube.com/embed/49xQs7K9YBE",
+    "F",
 ),
 
 #Plaats 5
@@ -164,6 +169,7 @@ persons = {
     True,
     "Gezonde ambitie voor Lommel",
     "http://www.youtube.com/embed/MFIfcHaq5bA",
+    "F",
 ),
 
 #Plaats 6
@@ -190,6 +196,7 @@ persons = {
     True,
     "Samen met een ploeg harde werkers",
     "http://www.youtube.com/embed/ahtfIKr_o9k",
+    "M",
 ),
 
 #Plaats 7
@@ -218,6 +225,7 @@ persons = {
     True,
     "Samen hard aan de toekomst werken",
     "http://www.youtube.com/embed/PE-kUy-5OT0",
+    "F",
 ),
 
 #Plaats 8,
@@ -245,6 +253,7 @@ persons = {
     True,
     "Samen luisteren, plannen, doen, evalueren en bijsturen",
     "http://www.youtube.com/embed/NMXFaL3t-To",
+    "M",
 ),
 
 #NAAM:
@@ -280,6 +289,7 @@ persons = {
     True,
     "Goede jobs in ons eigen Lommel",
     "http://www.youtube.com/embed/blQUU4R8_Dw",
+    "F",
 ),
 
 #Plaats 10
@@ -307,6 +317,7 @@ persons = {
     True,
     "Mensen staan voor mij centraal",
     "http://www.youtube.com/embed/HV7CD-TkrVM",
+    "F",
 ),
 
 #Plaats 11
@@ -334,6 +345,7 @@ persons = {
     False,
     "Iedereen telt mee, iedereen moet kansen krijgen",
     "http://www.youtube.com/embed/XkjmKkMbsgU",
+    "M",
 ),
 
 #Plaats 12
@@ -361,6 +373,7 @@ persons = {
     False,
     "Lommel... als muziek in mijn oren",
     "http://www.youtube.com/embed/Osppk3Qwckk",
+    "F",
 ),
 
 #Plaats 13
@@ -387,6 +400,7 @@ persons = {
     True,
     "In die voetsporen van mijn grootvader...",
     "http://www.youtube.com/embed/HRTHSWzI82c",
+    "M",
 ),
 
 #Plaats 14,
@@ -413,6 +427,7 @@ persons = {
     True,
     "Jong? Ik ook",
     "http://www.youtube.com/embed/IyZfr_UWVV0",
+    "M",
 ),
 
 #Plaats 15
@@ -441,6 +456,7 @@ persons = {
     True,
     "Een stad besturen is durven beslissen",
     "http://www.youtube.com/embed/Z62z87t9BQ8",
+    "F",
 ),
 
 #Plaats 16,
@@ -467,6 +483,7 @@ persons = {
     True,
     "Leer van gisteren, leef vandaag, droom van morgen!",
     "http://www.youtube.com/embed/Mdpey-95QiE",
+    "F",
 ),
 
 #Plaats 17
@@ -496,6 +513,7 @@ persons = {
     True,
     "Met een frisse kop vol ideeën",
     "http://www.youtube.com/embed/8XeAH_d7Fys",
+    "M",
 ),
 
 #Plaats 18
@@ -522,6 +540,7 @@ persons = {
     True,
     "'Be' the change you want to 'see' in the world",
     "http://www.youtube.com/embed/aa1CPP_PjNU",
+    "F",
 ),
 
 #Plaats 19,
@@ -550,6 +569,7 @@ persons = {
     False,
     "Genieten van onze prachtige, groene natuur en bossen",
     "http://www.youtube.com/embed/zF7lmkzL9Oc",
+    "F",
 ),
 
 #Plaats 20
@@ -576,6 +596,7 @@ persons = {
     True,
     "Kleine of grote problemen, op mij kan je tellen",
     "http://www.youtube.com/embed/7vefCOrV89w",
+    "M",
 ),
 
 #Plaats 21
@@ -604,6 +625,7 @@ persons = {
     True,
     "Met verbeelding kom je overal",
     "http://www.youtube.com/embed/DZU-lFjgLUo",
+    "M",
 ),
 #Ervaring + goesting = uw stem
 
@@ -633,6 +655,7 @@ persons = {
     True,
     "Lommel. Altijd het beste is goed genoeg!",
     "http://www.youtube.com/embed/_gCztAIhQJg",
+    "M",
 ),
 
 #Plaats 23
@@ -662,6 +685,7 @@ persons = {
     True,
     "Werk in eigen streek, daar werk ik voor",
     "http://www.youtube.com/embed/KFyaVEm-2MQ",
+    "F",
 ),
 
 #Plaats 24
@@ -690,6 +714,7 @@ persons = {
     True,
     "Op het juiste spoor... met Lijst Burgemeester",
     "http://www.youtube.com/embed/hNiXVwY5xb0",
+    "F",
 ),
 
 #Plaats 25
@@ -716,6 +741,7 @@ persons = {
     True,
     "Rasechte Lommelaar, man van het volk",
     "http://www.youtube.com/embed/fN2rv_aamEc",
+    "M",
 ),
 
 #Plaats 26
@@ -742,6 +768,7 @@ persons = {
     True,
     "Uw zorgen zijn mijn zorgen",
     "http://www.youtube.com/embed/4IiiJXYIFns",
+    "F",
 ),
 
 #Plaats 27
@@ -768,6 +795,7 @@ persons = {
     True,
     "Met passie zorgen voor mensen",
     "http://www.youtube.com/embed/jyvkrCMJKkE",
+    "F",
 ),
 
 #Plaats 28
@@ -796,6 +824,7 @@ persons = {
     True,
     "Een ambassadeur onder de mensen",
     "http://www.youtube.com/embed/F-BcU45SEq8",
+    "M",
 ),
 
 #plaats 29
@@ -824,6 +853,7 @@ persons = {
     True,
     "Ik Lommel graag!",
     "http://www.youtube.com/embed/OfmMFtau6eU",
+    "M",
 ),
 
 #Plaats 30,
@@ -850,6 +880,7 @@ persons = {
     True,
     "Mijn sport, mijn stad, mijn ervaring.",
     "http://www.youtube.com/embed/2pR8jWM1a1s",
+    "M",
 ),
 
 #Plaats 31
@@ -877,6 +908,7 @@ persons = {
     True,
     "Een sociale aanpak loont",
     "http://www.youtube.com/embed/eVsm80mfCQo",
+    "M",
 )}
 
 

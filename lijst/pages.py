@@ -140,27 +140,38 @@ class GamePage(webapp.RequestHandler):
     def getAnswers(self, chosenOne):
         answers = [
             chosenOne[1],
-            self.getRandom()[1],
-            self.getRandom()[1]
+            self.getRandom(chosenOne[1].gender)[1],
+            self.getRandom(chosenOne[1].gender)[1]
         ]
         # everyday i'm shuffling
         random.shuffle(answers)
         return answers
 
-    def getRandom(self):
+    def getRandom(self, gender=None):
         """
         Returns a random person, with some excludes in mind.  The returned value is a tuple (key, value)
         """
+        logger.info("Gender = " + str(gender))
         #index = random.randint(1, 31)
         index = random.choice(self.possibleValues)
         #persons_sorted is zero based
         person = persons_sorted[index - 1]
+        found = False
 
-        while not person[1].pic_youth:
+        #while not person[1].pic_youth:
+        while not found:
             index = random.choice(self.possibleValues)
             person = persons_sorted[index - 1]
-            self.remove(person[1].place)
 
+            if person[1].pic_youth:
+                if gender is not None and gender != person[1].gender:
+                    logger.info("T = " + person[1].gender)
+                    found = False
+                else:
+                    found = True
+                    self.remove(person[1].place)
+
+        logger.info("TT = " + person[1].gender)
         return person
 
     def remove(self, value):
