@@ -85,10 +85,32 @@ class CatchallPage(webapp.RequestHandler):
 
 class GamePage(webapp.RequestHandler):
     def get(self, path):
+        step = self.parseInt(path.replace("/", ""), -1)
+
+        if 0 < step < 11:
+            self.doGame(step)
+        else:
+            self.doFinish()
+
+    def doGame(self, step):
         self.possibleValues = range(1, 32)
         param_done = base64.urlsafe_b64decode(str(self.request.get("d"))).split("|")
         param_correct = base64.urlsafe_b64decode(str(self.request.get("c")))
+        param_choice = self.parseInt(self.request.get("q"), -1)
         logger.info("Correct = " + param_correct)
+
+        # http://wiki.python.org/moin/KeyError
+        #person_correct = persons[param_correct]
+        person_correct = persons.get(param_correct, None)
+        result = None
+
+        # Check the result
+        if person_correct is not None and person_correct.place == param_choice:
+            result = "success"
+        elif param_choice != -1:
+            result = "error"
+
+        #logger.info("Stront = " + str(result) + str(param_choice) + param_correct + str(person_correct.place))
 
         # Remove
         for place in param_done:
@@ -103,13 +125,19 @@ class GamePage(webapp.RequestHandler):
             'page': PageMeta("Het Lijst Burgemeester spel", "Kwis, fotos, kandidaten, mobile", "De foto kwis"),
             'menu': 'back',
             'person': chosenOne[1],
+            'personCorrect': person_correct,
             'correct': base64.urlsafe_b64encode(chosenOne[0]),
             'done': base64.urlsafe_b64encode("|".join(str(x) for x in param_done)),
-            'step': 1,
+            'step': step,
             'answers': self.getAnswers(chosenOne),
+            'result': result,
             'debug':"|".join(str(x) for x in self.possibleValues) + ", " + "|".join(str(x) for x in param_done)
         }
         self.response.out.write(template.render("templates/spelStap.html", values))
+
+    def doFinish(self):
+        values = {}
+        self.response.out.write(template.render("templates/spelEinde.html", values))
 
     def getAnswers(self, chosenOne):
         answers = [
@@ -142,6 +170,14 @@ class GamePage(webapp.RequestHandler):
             self.possibleValues.remove(int(value))
         except ValueError:
             pass
+
+    def parseInt(self, str, defaultValue):
+        try:
+            return int(str)
+        except ValueError:
+            return defaultValue
+
+
 
 
 
