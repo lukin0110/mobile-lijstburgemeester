@@ -50,13 +50,15 @@ persons = {
     'http://www.youtube.com/watch?v=4VLmJ43fHpM&feature=results_main&playnext=1&list=PL11748D4EA7A9D1CE',
     None,
     None,
-    "https://www.facebook.com/pvanvelthoven",
+    "https://www.facebook.com/peter.vanvelthovenlommel",
     'http://www.petervanvelthoven.be',
     True,
     "Geef het beste van jezef, ook aan anderen",
     "http://www.youtube.com/embed/lBHA9mYkzzM",
     "M",
 ),
+#"https://www.facebook.com/pvanvelthoven",
+#https://www.facebook.com/peter.vanvelthovenlommel
 
 # Plaats 2
 'an-vanden-boer': Person(
