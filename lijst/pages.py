@@ -93,8 +93,15 @@ class GamePage(webapp.RequestHandler):
             self.doFinish()
 
     def doGame(self, step):
+        state = base64.urlsafe_b64decode(str(self.request.get("d"))).split(",")
+
+        if len(state) > 1:
+            param_score = self.parseInt(state[1], 0)
+        else:
+            param_score = 0
+
         self.possibleValues = range(1, 32)
-        param_done = base64.urlsafe_b64decode(str(self.request.get("d"))).split("|")
+        param_done = str(state[0]).split("|")
         param_correct = base64.urlsafe_b64decode(str(self.request.get("c")))
         param_choice = self.parseInt(self.request.get("q"), -1)
         logger.info("Correct = " + param_correct)
@@ -107,6 +114,7 @@ class GamePage(webapp.RequestHandler):
         # Check the result
         if person_correct is not None and person_correct.place == param_choice:
             result = "success"
+            param_score += 1
         elif param_choice != -1:
             result = "error"
 
@@ -121,20 +129,26 @@ class GamePage(webapp.RequestHandler):
 
         values = {
             'page': PageMeta("Het Lijst Burgemeester spel", "Kwis, fotos, kandidaten, mobile", "De foto kwis"),
-            'menu': 'back',
+            'menu': 'spel',
             'person': chosenOne[1],
             'personCorrect': person_correct,
             'correct': base64.urlsafe_b64encode(chosenOne[0]),
-            'done': base64.urlsafe_b64encode("|".join(str(x) for x in param_done)),
+            'done': base64.urlsafe_b64encode("|".join(str(x) for x in param_done) + "," + str(param_score)),
             'step': step,
             'answers': self.getAnswers(chosenOne),
             'result': result,
-            'debug':"|".join(str(x) for x in self.possibleValues) + ", " + "|".join(str(x) for x in param_done)
+            'score': param_score,
+            'debug':"|".join(str(x) for x in self.possibleValues)
+                    + ", " + "|".join(str(x) for x in param_done)
+                    + ", " + str(param_score)
         }
         self.response.out.write(template.render("templates/spelStap.html", values))
 
     def doFinish(self):
-        values = {}
+        values = {
+            'menu': 'spel',
+            'score': 7,
+        }
         self.response.out.write(template.render("templates/spelEinde.html", values))
 
     def getAnswers(self, chosenOne):
@@ -165,13 +179,10 @@ class GamePage(webapp.RequestHandler):
 
             if person[1].pic_youth:
                 if gender is not None and gender != person[1].gender:
-                    logger.info("T = " + person[1].gender)
                     found = False
                 else:
                     found = True
                     self.remove(person[1].place)
-
-        logger.info("TT = " + person[1].gender)
         return person
 
     def remove(self, value):
