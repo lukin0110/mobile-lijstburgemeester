@@ -52,12 +52,12 @@ class PersonPage(webapp.RequestHandler):
             if person.place == 31:
                 values["next"] = "/wie/"
             else:
-                values["next"] = persons_sorted[person.place][0]
+                values["next"] = "/wie/" + persons_sorted[person.place][0]
 
             if person.place == 1:
                 values["previous"] = "/wie/"
             else:
-                values["previous"] = persons_sorted[person.place - 2][0]
+                values["previous"] ="/wie/" + persons_sorted[person.place - 2][0]
 
             self.response.out.write(template.render('templates/person.html', values))
 
