@@ -398,7 +398,7 @@ persons = {
     None,
     None,
     True,
-    "In die voetsporen van mijn grootvader...",
+    "In de voetsporen van mijn grootvader...",
     "http://www.youtube.com/embed/HRTHSWzI82c",
     "M",
 ),
