@@ -145,9 +145,23 @@ class GamePage(webapp.RequestHandler):
         self.response.out.write(template.render("templates/spelStap.html", values))
 
     def doFinish(self):
+        state = base64.urlsafe_b64decode(str(self.request.get("d"))).split(",")
+        if len(state) > 1:
+            param_score = self.parseInt(state[1], 0)
+        else:
+            param_score = 0
+
+        if param_score > 5:
+            cheer = "Hoera"
+        elif param_score == 5:
+            cheer = "Hmmm"
+        else:
+            cheer = "Oops"
+
         values = {
             'menu': 'spel',
-            'score': 7,
+            'cheer': cheer,
+            'score': param_score,
         }
         self.response.out.write(template.render("templates/spelEinde.html", values))
 
