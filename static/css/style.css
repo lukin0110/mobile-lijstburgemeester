@@ -129,3 +129,6 @@ a.logo{margin:0 auto 0 auto;max-width:1140px;display: block;text-decoration: non
 .home-link i{margin-top:11px;}
 .home-link h2{margin:0;}
 
+.gameStep{
+    color:#999;font-size: 12px;text-align: center;font-weight: normal;
+}
