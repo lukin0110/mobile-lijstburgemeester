@@ -50,7 +50,7 @@ persons = {
     'http://www.youtube.com/watch?v=4VLmJ43fHpM&feature=results_main&playnext=1&list=PL11748D4EA7A9D1CE',
     None,
     None,
-    "http://www.facebook.com/peter.vanvelthoven",
+    "https://www.facebook.com/pvanvelthoven",
     'http://www.petervanvelthoven.be',
     True,
     "Geef het beste van jezef, ook aan anderen",
