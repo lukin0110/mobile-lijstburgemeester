@@ -63,7 +63,7 @@ persons = {
 # Plaats 2
 'an-vanden-boer': Person(
     2,
-    'An Vander Boer',
+    'An Vanden Boer',
     'Vreyshorring 15A in Lommel <strong>Centrum</strong>',
     26,
     'Vrijgezel',
@@ -464,7 +464,7 @@ persons = {
 #Plaats 16,
 'anick-berghmans': Person(
     16,
-    'Anick Bergmans',
+    'Anick Berghmans',
     'Heide 108 in <strong>Heide-Heuvel</strong>',
     31,
     'Samenwonend',
@@ -491,7 +491,7 @@ persons = {
 #Plaats 17
 'kris-verduyckt': Person(
     17,
-    'Kris Verduykt',
+    'Kris Verduyckt',
     'Schamprood 88 in <strong>Lutlommel</strong>',
     35,
     'Partner van An Verspecht, Papa van Lotte en Lander',
@@ -722,7 +722,7 @@ persons = {
 #Plaats 25
 'erik-maes': Person(
     25,
-    'Eric Maes',
+    'Erik Maes',
     'Scheepvaartstraat 6 in <strong>Stevensvennen</strong>',
     49,
     'Gehuwd met Elly Bogaerts. Vader van Nathalie en Ellen',
@@ -776,7 +776,7 @@ persons = {
 #Plaats 27
 'sally-de-jong': Person(
     27,
-    'Sally De jong',
+    'Sally De Jong',
     'Vreyshorring 194 in <strong>Centrum</strong>',
     31,
     'vrijgezel',

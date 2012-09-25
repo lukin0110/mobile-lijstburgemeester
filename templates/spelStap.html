@@ -1,14 +1,14 @@
 {% include "inc/header.html" %}
 <div class="row">
     {% ifequal result "error" %}
-    <div class="alert alert-error">
+    <div class="alert alert-error pointer" data-dismiss="alert">
         <button type="button" class="close" data-dismiss="alert">×</button>
         <strong>Oops!</strong> Dat was niet juist
     </div>
     {% endifequal %}
 
     {% ifequal result "success" %}
-    <div class="alert alert-success">
+    <div class="alert alert-success pointer" data-dismiss="alert">
         <button type="button" class="close" data-dismiss="alert">×</button>
         <strong>Yep!</strong> Dat was {{ personCorrect.name }}
     </div>

@@ -5,14 +5,10 @@ import string
 from django.template import TemplateDoesNotExist
 
 import logging
-from datetime import datetime, date, timedelta
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
-from google.appengine.ext import db
 from person import persons
 from person import persons_sorted
-from operator import itemgetter
-from operator import attrgetter
 
 logger = logging.getLogger("pages")
 
@@ -85,75 +81,69 @@ class CatchallPage(webapp.RequestHandler):
 
 class GamePage(webapp.RequestHandler):
     def get(self, path):
-        step = self.parseInt(path.replace("/", ""), -1)
+        self.step = self.parseInt(path.replace("/", ""), -1)
+        self.state = base64.urlsafe_b64decode(str(self.request.get("d"))).split(",")
+        self.param_done = str(self.state[0]).split("|")
+        self.param_correct = base64.urlsafe_b64decode(str(self.request.get("c")))
+        self.param_choice = self.parseInt(self.request.get("q"), -1)
 
-        if 0 < step < 11:
-            self.doGame(step)
+        if len(self.state) > 1:
+            self.param_score = self.parseInt(self.state[1], 0)
         else:
-            self.doFinish()
-
-    def doGame(self, step):
-        state = base64.urlsafe_b64decode(str(self.request.get("d"))).split(",")
-
-        if len(state) > 1:
-            param_score = self.parseInt(state[1], 0)
-        else:
-            param_score = 0
-
-        self.possibleValues = range(1, 32)
-        param_done = str(state[0]).split("|")
-        param_correct = base64.urlsafe_b64decode(str(self.request.get("c")))
-        param_choice = self.parseInt(self.request.get("q"), -1)
-        logger.info("Correct = " + param_correct)
+            self.param_score = 0
 
         # http://wiki.python.org/moin/KeyError
         #person_correct = persons[param_correct]
-        person_correct = persons.get(param_correct, None)
-        result = None
+        self.person_correct = persons.get(self.param_correct, None)
+        self.result = None
 
         # Check the result
-        if person_correct is not None and person_correct.place == param_choice:
-            result = "success"
-            param_score += 1
-        elif param_choice != -1:
-            result = "error"
+        if self.person_correct is not None and self.person_correct.place == self.param_choice:
+            self.result = "success"
+            self.param_score += 1
+        elif self.param_choice != -1:
+            self.result = "error"
+
+        # Redirect the page
+        if 0 < self.step < 11:
+            self.doGame()
+        else:
+            self.doFinish()
+
+    def doGame(self):
+        self.possibleValues = range(1, 32)
+        logger.info("Correct = " + self.param_correct)
 
         # Remove
-        for place in param_done:
+        for place in self.param_done:
             self.remove(place)
 
         chosenOne = self.getRandom()
 
         self.remove(chosenOne[1].place)
-        param_done.append(chosenOne[1].place)
+        self.param_done.append(chosenOne[1].place)
 
         values = {
             'page': PageMeta("Het Lijst Burgemeester spel", "Kwis, fotos, kandidaten, mobile", "De foto kwis"),
             'menu': 'spel',
             'person': chosenOne[1],
-            'personCorrect': person_correct,
+            'personCorrect': self.person_correct,
             'correct': base64.urlsafe_b64encode(chosenOne[0]),
-            'done': base64.urlsafe_b64encode("|".join(str(x) for x in param_done) + "," + str(param_score)),
-            'step': step,
+            'done': base64.urlsafe_b64encode("|".join(str(x) for x in self.param_done) + "," + str(self.param_score)),
+            'step': self.step,
             'answers': self.getAnswers(chosenOne),
-            'result': result,
-            'score': param_score,
+            'result': self.result,
+            'score': self.param_score,
             'debug':"|".join(str(x) for x in self.possibleValues)
-                    + ", " + "|".join(str(x) for x in param_done)
-                    + ", " + str(param_score)
+                    + ", " + "|".join(str(x) for x in self.param_done)
+                    + ", " + str(self.param_score)
         }
         self.response.out.write(template.render("templates/spelStap.html", values))
 
     def doFinish(self):
-        state = base64.urlsafe_b64decode(str(self.request.get("d"))).split(",")
-        if len(state) > 1:
-            param_score = self.parseInt(state[1], 0)
-        else:
-            param_score = 0
-
-        if param_score > 5:
+        if self.param_score > 5:
             cheer = "Hoera"
-        elif param_score == 5:
+        elif self.param_score == 5:
             cheer = "Hmmm"
         else:
             cheer = "Oops"
@@ -161,7 +151,7 @@ class GamePage(webapp.RequestHandler):
         values = {
             'menu': 'spel',
             'cheer': cheer,
-            'score': param_score,
+            'score': self.param_score,
         }
         self.response.out.write(template.render("templates/spelEinde.html", values))
 
