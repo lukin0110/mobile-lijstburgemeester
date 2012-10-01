@@ -37,6 +37,7 @@ class PersonPage(webapp.RequestHandler):
 
         if len(path) == 0:
             values["menu"] = "back"
+            values["preload"] = "poster"
             values["page"] = PageMeta("Ontdek onze kandidaten", "Lommel, sp.a, kandidaten, lijst burgemeester", "Wie")
             self.response.out.write(template.render('templates/persons.html', values))
         else:
@@ -71,6 +72,8 @@ class CatchallPage(webapp.RequestHandler):
             if path == "/" or path is None:
                 path = "/index"
                 values['menu'] = 'logo'
+            elif path == "/spel":
+                values['preload'] = "youth"
 
             str = "templates" + path + ".html"
             self.response.out.write(template.render(str, values))
