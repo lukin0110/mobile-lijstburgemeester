@@ -46,10 +46,12 @@ App.history = function() {
  * @param base
  */
 App.preload = function(base) {
-    for(var i=0;i<31;i++){
-        var tmp = new Image();
-        tmp.src = base + "/" + (i+1) + ".jpg";
-    }
+    $(document).ready(function(){
+        for(var i=0;i<31;i++){
+            var tmp = new Image();
+            tmp.src = base + "/" + (i+1) + ".jpg";
+        }
+    });
 };
 
 App.init = function() {
