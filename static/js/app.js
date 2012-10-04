@@ -1,11 +1,7 @@
-var C = {};
-C.loaded = false;
-
 var Fx = {};
 
 Fx.showLoading = function() {
     $("#loading").fadeIn(200);
-    App.log("ddd");
     return true;
 };
 
@@ -41,6 +37,21 @@ App.history = function() {
     //App.log("1 = " + hash + ", " + window.location.pathname);
     //App.log("2 = " + (hash ? "rr" : "tt"));
     //history.go(-1);
+};
+
+/**
+ * /s/img/persons/youth
+ * /s/img/persons/poster
+ *
+ * @param base
+ */
+App.preload = function(base) {
+    $(document).ready(function(){
+        for(var i=0;i<31;i++){
+            var tmp = new Image();
+            tmp.src = base + "/" + (i+1) + ".jpg";
+        }
+    });
 };
 
 App.init = function() {

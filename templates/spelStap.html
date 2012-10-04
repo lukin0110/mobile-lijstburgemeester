@@ -1,6 +1,20 @@
 {% include "inc/header.html" %}
 <div class="row">
-    <h3 class="clearfix" style="margin:0">Foto {{ step }} <small class="pull-right" style="line-height: 35px;">{{ step }} / 5</small></h3>
+    {% ifequal result "error" %}
+    <div class="alert alert-error pointer" data-dismiss="alert">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <strong>Oops!</strong> Dat was niet juist
+    </div>
+    {% endifequal %}
+
+    {% ifequal result "success" %}
+    <div class="alert alert-success pointer" data-dismiss="alert">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <strong>Yep!</strong> Dat was {{ personCorrect.name }}
+    </div>
+    {% endifequal %}
+
+    <h5 class="gameStep">{{ step }} / 10</h5>
     <div class="center"><img src="/s/img/persons/youth/{{ person.place }}.jpg" class="img-polaroid"/></div>
 
     <ul class="persons">

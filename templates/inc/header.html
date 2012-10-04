@@ -1,26 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="utf-8">
     <title>{% if page.title %}{{ page.title }} | {% endif %}Lijst Burgemeester Lommel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
-
-    <meta property="og:site_name" content="Lijst Burgemeester Lommel"/>
-    <meta property="og:image" content="http://lijst.lukin.be/s/img/logo.png"/>
-    <meta property="og:url" content="http://lijst.lukin.be"/>
-    <meta name="description" content="{{ page.desc }}"/>
-    <meta name="keywords" content="{{ page.keywords }}"/>
-
-    <!--
-    <meta property="fb:app_id" content="117844644948494"/>
-    <meta property="fb:page_id" content="209616889051124"/>
-    -->
-
-    <!--
-    <meta property="og:site_name" content="Shopliv.es"/>
-    <meta property="og:image" content="http://dncvhruznkiwg.cloudfront.net/s/img/common/oglogo.png"/>
--->
 <!--
      m        "       "            m
      #      mmm     mmm    mmm   mm#mm
@@ -36,12 +20,19 @@
      #mmmm" "mm"#   #     "#m"#  "#mm"  # # #  "#mm"  "#mm"  "mmm"    "mm  "#mm"  #
                            m  #
                             ""
+    Source: https://github.com/lukin0110/mobile-lijstburgemeester
  -->
+    <meta property="og:site_name" content="Lijst Burgemeester Lommel"/>
+    <meta property="og:image" content="http://lijst.lukin.be/s/img/oglogo.png"/>
+    <meta property="og:url" content="http://lijst.lukin.be"/>
+    <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}Lijst Burgemeester Lommel"/>
+    <meta property="og:description" content="{{ page.desc }}"/>
+
     <!-- Le CSS -->
     <link href="/s/css/bootstrap.min.css" rel="stylesheet">
     <link href="/s/css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="/s/css/docs.css" rel="stylesheet">
     <link href="/s/css/style.css" rel="stylesheet">
+{#    <link href="/s/css/docs.css" rel="stylesheet">#}
 
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="/s/img/ico/favicon.ico">
@@ -50,18 +41,20 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/s/img/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="/s/img/ico/apple-touch-icon-57-precomposed.png">
 
-    <!--
     <script type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-24094817-2']);
-        _gaq.push(['_trackPageview']);
-        (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
+        // dont include ga on local machine
+        var host = window.location.host;
+        if(host.indexOf("lijst.lukin.be")>-1){
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-24094817-2']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        }
     </script>
-    -->
 </head>
 <body data-spy="scroll" data-target=".bs-docs-sidebar">
 <!--<p>{{ debug }}</p>-->
@@ -70,7 +63,7 @@
 
 {% ifequal menu "back" %}
 <div class="navfixed clearfix" id="header">
-    <div class="pull-left"><a class="btn btn-inverse" href="javascript:void(0)" onclick="App.history();">Terug</a></div>
+    <div class="pull-left"><a class="btn btn-inverse" href="javascript:void(0)" onclick="App.history();"><i class="icon-chevron-left icon-white"></i> Terug</a></div>
     <div class="pull-right"><a class="btn btn-inverse" href="/" loading="true"><i class="icon-home icon-white"></i> Home</a></div>
 </div>
 <div class="navfixed-ph"></div>
@@ -79,15 +72,22 @@
 {% ifequal menu "persons" %}
 <div class="navfixed clearfix" id="header">
     <div class="pull-left"><a class="btn btn-inverse" href="{{ previous }}" loading="true"><i class="icon-chevron-left icon-white"></i> Vorige</a></div>
-    <div class="pull-left"><a class="btn btn-inverse" href="/wie/" loading="true"><i class="icon-user icon-white"></i></a></div>
+    <div class="pull-left"><a class="btn btn-inverse" href="/wie/" loading="true"><i class="icon-list icon-white"></i></a></div>
     <div class="pull-right"><a class="btn btn-inverse" href="{{ next }}" loading="true">Volgende <i class="icon-chevron-right icon-white"></i></a></div>
 </div>
 <div class="navfixed-ph"></div>
 {% endifequal %}
 
-{% ifequal menu "logo" %}
-<a class="logo" href="/"><img src="/s/img/logo.png" alt="Lijst Burgemeester"/></a>
+{% ifequal menu "spel" %}
+    <div class="navfixed clearfix" id="header">
+        <div class="pull-left"><a class="btn btn-inverse" href="/spel/1">Start opnieuw <i class="icon-repeat icon-white"></i></a></div>
+        <div class="pull-right"><a class="btn btn-inverse" href="/" loading="true"><i class="icon-home icon-white"></i> Home</a></div>
+        </div>
+    <div class="navfixed-ph"></div>
 {% endifequal %}
 
-<!-- the lives hereeee-->
+{% ifequal menu "logo" %}
+<a class="logo" href="/"><img src="/s/img/logo2.png" alt="Lijst Burgemeester"/></a>
+{% endifequal %}
+
 <div class="container" id="container">
