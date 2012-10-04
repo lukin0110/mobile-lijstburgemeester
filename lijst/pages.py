@@ -2,6 +2,7 @@
 import base64
 import random
 import string
+import urllib
 from django.template import TemplateDoesNotExist
 
 import logging
