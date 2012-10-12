@@ -344,7 +344,7 @@ persons = {
     None,
     None,
     None,
-    False,
+    True,
     "Iedereen telt mee, iedereen moet kansen krijgen",
     "http://www.youtube.com/embed/XkjmKkMbsgU",
     "M",

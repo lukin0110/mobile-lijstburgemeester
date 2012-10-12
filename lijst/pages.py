@@ -14,10 +14,11 @@ from person import persons_sorted
 logger = logging.getLogger("pages")
 
 class PageMeta:
-    def __init__(self, desc, keywords, title):
+    def __init__(self, desc, keywords, title, url="http://lijst.lukin.be/"):
         self.desc = desc
         self.keywords = keywords
         self.title = title
+        self.url = url
 
 
 class IndexPage(webapp.RequestHandler):
@@ -45,7 +46,10 @@ class PersonPage(webapp.RequestHandler):
             person = persons[string.replace(path, "/", "")]
             values["menu"] = "persons"
             values["person"] = person
-            values["page"] = PageMeta("Kandidaat: " + person.name, "Lommel, sp.a, kandidaten, lijst burgemeester, " + person.name, person.name)
+            values["page"] = PageMeta("Kandidaat: " + person.name,
+                "Lommel, sp.a, kandidaten, lijst burgemeester, " + person.name,
+                person.name,
+                "http://lijst.lukin.be/wie/" + path)
 
             if person.place == 31:
                 values["next"] = "/wie/"
